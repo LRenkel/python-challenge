@@ -34,8 +34,7 @@ with open('some_results.txt', 'w') as f:
     for x in candidate_percentage_list:
         _cand, _votes, _pct = x
         print("{:10s}: {:.1%} {:10d} ".format(_cand, _pct, _votes))
-        f.write("{:10s}: {:.1%} {:10d} ".format(_cand, _pct, _votes) 
-+ "\n")
+        f.write("{:10s}: {:.1%} {:10d} ".format(_cand, _pct, _votes) + "\n")
     print("-----------------------")
     print("Winner: " + candidate_percentage_list[0][0]  + "\n")
     f.write("Winner: " + candidate_percentage_list[0][0]  + "\n")
