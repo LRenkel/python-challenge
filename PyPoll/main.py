@@ -9,22 +9,19 @@ candidate_dict = dict((data.Candidate.value_counts()))
 #Calculate total number of votes in election
 total_votes = sum(data.Candidate.value_counts())
 
-#Pull out list of votes for each candidate for use in percentage 
-calculation
+#Pull out list of votes for each candidate for use in percentage calculation
 cand_votes = list(candidate_dict.values())
 
 #create empty percentage list to put in percentage calculations
 percentage_list = []
 
-#calculate percentage of total votes for each candidate by iterating 
-through list of votes
+#calculate percentage of total votes for each candidate by iterating through list of votes
 for x in cand_votes:
     percentage = x / total_votes
     percentage_list.append(percentage) #add to percentage_list
 
 #combine candidate name and votes with percentage
-candidate_percentage_list = 
-list(zip(candidate_dict.keys(),candidate_dict.values(),percentage_list))
+candidate_percentage_list = list(zip(candidate_dict.keys(),candidate_dict.values(),percentage_list))
 
 with open('some_results.txt', 'w') as f:
     print("Election Results")
@@ -38,4 +35,3 @@ with open('some_results.txt', 'w') as f:
     print("-----------------------")
     print("Winner: " + candidate_percentage_list[0][0]  + "\n")
     f.write("Winner: " + candidate_percentage_list[0][0]  + "\n")
-
