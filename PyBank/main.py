@@ -10,13 +10,13 @@ total_revenue = 0
 revenue_change = 0
 revenue_change_list = []
 month_list = []
-previous_revenue = 0
+previous_revenue = None
 
 for row in data:
    month_list.append(row[0]) #create list of all months in dataset (for later count calculations)
    revenue = eval(row[1]) #define revenue as in column 2
    total_revenue += revenue #increase total revenue for each iteration
-   if previous_revenue != 0: #if statement leaves out first row of data since there is no change to calculate
+   if previous_revenue != None: #if statement leaves out first row of data since there is no change to calculate
        revenue_change = eval(row[1]) - previous_revenue  #calculate revenue change using current row revenue and defined previous revenue
        revenue_change_list.append(revenue_change) #add current revenue change to revenue change list for later analysis
    previous_revenue = revenue #define new previous_revenue value for use in next iteration's revenue change calculation
