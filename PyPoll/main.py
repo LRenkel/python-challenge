@@ -23,15 +23,23 @@ for x in cand_votes:
 #combine candidate name and votes with percentage
 candidate_percentage_list = list(zip(candidate_dict.keys(),candidate_dict.values(),percentage_list))
 
-with open('some_results.txt', 'w') as f:
-    print("Election Results")
-    print("-----------------------")
-    print("Total Votes: {}".format(total_votes))
-    print("-----------------------")
+print("Election Results")
+print("-----------------------")
+print("Total Votes: {}".format(total_votes))
+print("-----------------------")
+for x in candidate_percentage_list:
+     _cand, _votes, _pct = x
+     print("{:10s}: {:.1%} {:10d} ".format(_cand, _pct, _votes))
+print("-----------------------")
+print("Winner: " + candidate_percentage_list[0][0]  + "\n")
+
+with open('ELection_Results.txt', 'w') as f:
+    f.write("Election Results \n")
+    f.write("----------------------- \n")
+    f.write("Total Votes: {} \n".format(total_votes))
+    f.write("----------------------- \n")
     for x in candidate_percentage_list:
-        _cand, _votes, _pct = x
-        print("{:10s}: {:.1%} {:10d} ".format(_cand, _pct, _votes))
-        f.write("{:10s}: {:.1%} {:10d} ".format(_cand, _pct, _votes) + "\n")
-    print("-----------------------")
-    print("Winner: " + candidate_percentage_list[0][0]  + "\n")
+         _cand, _votes, _pct = x
+         f.write("{:10s}: {:.1%} {:10d} ".format(_cand, _pct, _votes) + "\n")
+    f.write("----------------------- \n")
     f.write("Winner: " + candidate_percentage_list[0][0]  + "\n")
